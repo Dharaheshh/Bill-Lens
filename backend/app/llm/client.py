@@ -31,6 +31,7 @@ class LLMClient:
         self._semaphore = asyncio.Semaphore(4)
         self._primary: AsyncOpenAI | None = None
         self._fallback: AsyncOpenAI | None = None
+        self._vision: AsyncOpenAI | None = None
 
     def _get_primary(self) -> AsyncOpenAI:
         if self._primary is None:
@@ -51,6 +52,18 @@ class LLMClient:
                 timeout=30.0,
             )
         return self._fallback
+
+    def _get_vision_client(self) -> AsyncOpenAI:
+        """Return a dedicated vision client if configured, else the primary."""
+        if settings.LLM_VISION_API_KEY:
+            if self._vision is None:
+                self._vision = AsyncOpenAI(
+                    base_url=settings.LLM_VISION_BASE_URL or None,
+                    api_key=settings.LLM_VISION_API_KEY,
+                    timeout=45.0,
+                )
+            return self._vision
+        return self._get_primary()
 
     def _model_for(self, role: str) -> str:
         if role == "vision":
@@ -133,8 +146,8 @@ class LLMClient:
             raise LLMUnavailable("All LLM providers failed")
 
     async def vision(self, image_bytes_list: list[bytes], prompt: str, schema: dict | None = None) -> LLMResponse:
-        if not settings.LLM_API_KEY:
-            raise LLMUnavailable("No LLM_API_KEY configured")
+        if not settings.LLM_API_KEY and not settings.LLM_VISION_API_KEY:
+            raise LLMUnavailable("No LLM_API_KEY or LLM_VISION_API_KEY configured")
 
         content: list[dict] = [{"type": "text", "text": prompt}]
         for img_bytes in image_bytes_list:
@@ -155,7 +168,7 @@ class LLMClient:
         async with self._semaphore:
             for attempt in range(2):
                 try:
-                    return await asyncio.wait_for(self._try_call(self._get_primary(), **kwargs), timeout=45.0)
+                    return await asyncio.wait_for(self._try_call(self._get_vision_client(), **kwargs), timeout=45.0)
                 except LLMUnavailable:
                     raise
                 except Exception as e:  # noqa: BLE001

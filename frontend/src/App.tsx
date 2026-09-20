@@ -1,5 +1,5 @@
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
 import Coverage from './pages/Coverage';
 import BillUpload from './pages/BillUpload';
 import VerifyLines from './pages/VerifyLines';
@@ -9,16 +9,16 @@ import ResultDashboard from './pages/ResultDashboard';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Coverage />} />
-        <Route path="/upload" element={<BillUpload />} />
-        <Route path="/verify" element={<VerifyLines />} />
-        <Route path="/action" element={<ActionPack />} />
-        <Route path="/run" element={<RunView />} />
-        <Route path="/result" element={<ResultDashboard />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/coverage" element={<Coverage />} />
+      <Route path="/upload" element={<BillUpload />} />
+      <Route path="/verify" element={<VerifyLines />} />
+      <Route path="/action" element={<ActionPack />} />
+      <Route path="/run/:id" element={<RunView />} />
+      <Route path="/result" element={<ResultDashboard />} />
+    </Routes>
   );
 }
+
 export default App;
