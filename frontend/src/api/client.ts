@@ -1,31 +1,43 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
-function getSessionId() {
-  let id = localStorage.getItem('X-Session-Id');
-  if (!id) {
-    id = crypto.randomUUID();
-    localStorage.setItem('X-Session-Id', id);
-  }
-  return id;
+export async function fetchApi(path: string, options?: RequestInit) {
+  const res = await fetch(`${API_URL}${path}`, options);
+  if (!res.ok) throw new Error(`API error: ${res.status}`);
+  return res.json();
 }
 
-export async function apiClient(endpoint: string, options: RequestInit = {}) {
-  const headers = new Headers(options.headers);
-  headers.set('X-Session-Id', getSessionId());
-  
-  if (!headers.has('Content-Type') && !(options.body instanceof FormData)) {
-    headers.set('Content-Type', 'application/json');
-  }
+export async function uploadPolicy(file: File) {
+  const fd = new FormData();
+  fd.append('file', file);
+  return fetchApi('/policies', { method: 'POST', body: fd });
+}
 
-  const response = await fetch(`${API_URL}${endpoint}`, {
-    ...options,
-    headers,
+export async function uploadBill(file: File) {
+  const fd = new FormData();
+  fd.append('file', file);
+  return fetchApi('/bills', { method: 'POST', body: fd });
+}
+
+export async function createRun(billId: string, policyId?: string, autoConfirm = false) {
+  return fetchApi('/runs', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ bill_id: billId, policy_id: policyId, auto_confirm: autoConfirm })
   });
+}
 
-  if (!response.ok) {
-    throw new Error(`API Error: ${response.status}`);
-  }
-  
-  if (response.status === 204) return null;
-  return response.json();
+export async function createDemoRun(sampleId: string) {
+  return fetchApi(`/demo/${sampleId}`, { method: 'POST' });
+}
+
+export async function getRunResult(runId: string) {
+  return fetchApi(`/runs/${runId}/result`);
+}
+
+export async function confirmRun(runId: string, lines: any[], isInsured: boolean, policyId?: string) {
+  return fetchApi(`/runs/${runId}/confirm`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ lines, is_insured: isInsured, policy_id: policyId })
+  });
 }

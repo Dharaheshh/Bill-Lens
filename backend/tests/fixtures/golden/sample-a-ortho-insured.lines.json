@@ -1,82 +1,15 @@
 [
-  {
-    "line_no": 1,
-    "raw_text": "ROOM RENT 5 DAYS",
-    "qty": 5.0,
-    "unit_price": 8000.0,
-    "amount": 40000.0,
-    "category_guess": "room"
-  },
-  {
-    "line_no": 2,
-    "raw_text": "NURSING CHARGES 5 DAYS",
-    "qty": 5.0,
-    "unit_price": 1000.0,
-    "amount": 5000.0,
-    "category_guess": "nursing"
-  },
-  {
-    "line_no": 3,
-    "raw_text": "SURGEON FEE",
-    "qty": 1.0,
-    "unit_price": 40000.0,
-    "amount": 40000.0,
-    "category_guess": "professional_fee"
-  },
-  {
-    "line_no": 4,
-    "raw_text": "COMPLETE BLOOD COUNT",
-    "qty": 1.0,
-    "unit_price": 500.0,
-    "amount": 500.0,
-    "category_guess": "investigation"
-  },
-  {
-    "line_no": 5,
-    "raw_text": "COMPLETE BLOOD COUNT",
-    "qty": 1.0,
-    "unit_price": 500.0,
-    "amount": 500.0,
-    "category_guess": "investigation"
-  },
-  {
-    "line_no": 6,
-    "raw_text": "INJ PANTOP 40MG",
-    "qty": 2.0,
-    "unit_price": 50.0,
-    "amount": 100.0,
-    "category_guess": "pharmacy"
-  },
-  {
-    "line_no": 7,
-    "raw_text": "INJ PANTOP 40MG",
-    "qty": 2.0,
-    "unit_price": 50.0,
-    "amount": 100.0,
-    "category_guess": "pharmacy"
-  },
-  {
-    "line_no": 8,
-    "raw_text": "DISPOSABLE GLOVES",
-    "qty": 10.0,
-    "unit_price": 200.0,
-    "amount": 2000.0,
-    "category_guess": "consumable"
-  },
-  {
-    "line_no": 9,
-    "raw_text": "PARACETAMOL 650MG",
-    "qty": 10.0,
-    "unit_price": 150.0,
-    "amount": 1500.0,
-    "category_guess": "pharmacy"
-  },
-  {
-    "line_no": 10,
-    "raw_text": "MISC CHARGES",
-    "qty": 1.0,
-    "unit_price": 1000.0,
-    "amount": 1200.0,
-    "category_guess": "other"
-  }
+  {"line_no": 1, "raw_text": "ROOM RENT", "qty": 5.0, "unit_price": 8000.0, "amount": 40000.0, "service_date": "2024-01-10", "category_guess": "room", "catalog_id": 1, "canonical_name": "ROOM RENT", "category": "room", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 2, "raw_text": "SURGEON FEE", "qty": null, "unit_price": null, "amount": 40000.0, "service_date": "2024-01-14", "category_guess": "professional_fee", "catalog_id": 2, "canonical_name": "SURGEON FEE", "category": "professional_fee", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 3, "raw_text": "PHARMACY CHARGES", "qty": null, "unit_price": null, "amount": 30000.0, "service_date": "2024-01-14", "category_guess": "pharmacy", "catalog_id": 3, "canonical_name": "PHARMACY CHARGES", "category": "pharmacy", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 4, "raw_text": "STERILE GLOVES", "qty": 10.0, "unit_price": 50.0, "amount": 500.0, "service_date": "2024-01-10", "category_guess": "consumable", "catalog_id": 4, "canonical_name": "STERILE GLOVES", "category": "consumable", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 5, "raw_text": "SURGICAL MASK", "qty": 5.0, "unit_price": 20.0, "amount": 100.0, "service_date": "2024-01-10", "category_guess": "consumable", "catalog_id": 5, "canonical_name": "SURGICAL MASK", "category": "consumable", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 6, "raw_text": "ADMISSION KIT", "qty": 1.0, "unit_price": 1400.0, "amount": 1400.0, "service_date": "2024-01-10", "category_guess": "consumable", "catalog_id": 6, "canonical_name": "ADMISSION KIT", "category": "consumable", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 7, "raw_text": "CBC", "qty": 1.0, "unit_price": 800.0, "amount": 800.0, "service_date": "2024-01-11", "category_guess": "investigation", "catalog_id": 7, "canonical_name": "COMPLETE BLOOD COUNT", "category": "investigation", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 8, "raw_text": "CBC", "qty": 1.0, "unit_price": 800.0, "amount": 800.0, "service_date": "2024-01-11", "category_guess": "investigation", "catalog_id": 7, "canonical_name": "COMPLETE BLOOD COUNT", "category": "investigation", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 9, "raw_text": "INJ PANTOP 40MG", "qty": 1.0, "unit_price": 150.0, "amount": 150.0, "service_date": "2024-01-12", "category_guess": "pharmacy", "catalog_id": 8, "canonical_name": "PANTOPRAZOLE INJ 40MG", "category": "pharmacy", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 10, "raw_text": "INJ PANTOP 40MG", "qty": 1.0, "unit_price": 150.0, "amount": 150.0, "service_date": "2024-01-12", "category_guess": "pharmacy", "catalog_id": 8, "canonical_name": "PANTOPRAZOLE INJ 40MG", "category": "pharmacy", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 11, "raw_text": "NURSING CHARGES", "qty": null, "unit_price": null, "amount": 5000.0, "service_date": "2024-01-10", "category_guess": "nursing", "catalog_id": 9, "canonical_name": "NURSING CHARGES", "category": "nursing", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 12, "raw_text": "PARACETAMOL 650MG", "qty": 10.0, "unit_price": 500.0, "amount": 5000.0, "service_date": "2024-01-13", "category_guess": "pharmacy", "catalog_id": 10, "canonical_name": "PARACETAMOL 650MG", "category": "pharmacy", "match_method": "exact", "match_score": 1.0, "extraction_flag": false, "user_edited": false},
+  {"line_no": 13, "raw_text": "BLOOD GLUCOSE FBS", "qty": 2.0, "unit_price": 100.0, "amount": 300.0, "service_date": "2024-01-11", "category_guess": "investigation", "catalog_id": 11, "canonical_name": "BLOOD GLUCOSE FBS", "category": "investigation", "match_method": "exact", "match_score": 1.0, "extraction_flag": true, "user_edited": false}
 ]

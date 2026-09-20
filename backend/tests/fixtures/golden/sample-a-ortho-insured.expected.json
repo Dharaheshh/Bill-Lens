@@ -1,39 +1,22 @@
 {
-  "billed_total": 90900.0,
-  "questionable_total": 34300.0,
-  "insurer_deductions_total": 18875.0,
-  "insurer_pays": 81000.0,
-  "patient_pays": 41000.0,
+  "_comment": "Synthetic demo data — not based on real insurer data. Lines sum = 124200 total (simulator uses sum of all lines for billed_total, not 122000). Non-payable lines 4+5+6 = 500+100+1400 = 2000. Room lines: room(40000) + professional_fee(40000) + nursing(5000) = 85000 room-linked. With cap 5000/day, ratio=0.625, proportionate deduction = 85000 * 0.375 = 31875. See note below.",
+  "_note": "The SPEC §6 worked example uses EXACTLY 5 lines totaling 122000 with room_linked=80000 (room+prof_fee only, no nursing). This fixture has nursing too, so deduction will differ. The test_simulator.py tests use the SPEC §6 exact 5-line setup directly in code. This golden fixture tests the DETERMINISTIC FLOOR with the full planted findings.",
+  "billed_total": 124200.0,
+  "non_payable_total": 2000.0,
+  "room_rent_deduction": 31875.0,
+  "insurer_deductions_total": 33875.0,
+  "copay_amount": 8177.0,
+  "insurer_pays": 73527.0,
+  "patient_pays": 50673.0,
   "planted_findings": [
-    {
-      "rule_code": "R1",
-      "line_no": 10,
-      "at_stake": 200.0
-    },
-    {
-      "rule_code": "R2",
-      "line_no": 5,
-      "at_stake": 500.0
-    },
-    {
-      "rule_code": "R3",
-      "line_no": 8,
-      "at_stake": 2000.0
-    },
-    {
-      "rule_code": "R4",
-      "line_no": 2,
-      "at_stake": 5000.0
-    },
-    {
-      "rule_code": "R5",
-      "line_no": 9,
-      "at_stake": 1200.0
-    },
-    {
-      "rule_code": "C1",
-      "line_no": 1,
-      "at_stake": 16875.0
-    }
+    {"rule_code": "R1", "line_ids": [13], "amount_at_stake": 100.0},
+    {"rule_code": "R2", "line_ids": [7, 8], "severity": "red"},
+    {"rule_code": "R2", "line_ids": [9, 10], "severity": "amber"},
+    {"rule_code": "R3", "line_ids": [4]},
+    {"rule_code": "R3", "line_ids": [5]},
+    {"rule_code": "R3", "line_ids": [6]},
+    {"rule_code": "R4", "line_ids": [11]},
+    {"rule_code": "R5", "line_ids": [12]},
+    {"rule_code": "C1", "line_ids": []}
   ]
 }
