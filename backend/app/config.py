@@ -9,6 +9,8 @@ class Settings(BaseSettings):
     LLM_MODEL_VISION: str = "gpt-4o"
     LLM_MODEL_AGENT: str = "gpt-4o-mini"
     LLM_MODEL_FAST: str = "gpt-4o-mini"
+    LLM_VISION_BASE_URL: str = ""
+    LLM_VISION_API_KEY: str = ""
     LLM_FALLBACK_BASE_URL: str = ""
     LLM_FALLBACK_API_KEY: str = ""
     LLM_FALLBACK_MODEL: str = ""
