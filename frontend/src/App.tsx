@@ -1,4 +1,5 @@
 import { Routes, Route, Link } from 'react-router-dom'
+import ResultDashboard from './pages/ResultDashboard'
 
 function PlaceholderCard({ title }: { title: string }) {
   return (
@@ -39,9 +40,10 @@ export default function App() {
           <Route path="/" element={<PlaceholderCard title="Hero + Start" />} />
           <Route path="/coverage" element={<PlaceholderCard title="PolicyPicker & Terms" />} />
           <Route path="/bill" element={<PlaceholderCard title="BillDropzone" />} />
+          <Route path="/run/mock/result" element={<ResultDashboard />} />
           <Route path="/run/:id" element={<PlaceholderCard title="TraceTimeline" />} />
           <Route path="/run/:id/verify" element={<PlaceholderCard title="LinesEditor (Verify)" />} />
-          <Route path="/run/:id/result" element={<PlaceholderCard title="Result Dashboard" />} />
+          <Route path="/run/:id/result" element={<ResultDashboard />} />
           <Route path="/run/:id/actions" element={<PlaceholderCard title="Action Pack" />} />
         </Routes>
       </main>

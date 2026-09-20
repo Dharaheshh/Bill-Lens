@@ -1,0 +1,78 @@
+{
+  "run_id": "mock-run-123",
+  "bill": {
+    "hospital_name": "Demo Hospital",
+    "bill_date": "2023-10-01",
+    "stated_total": 122000,
+    "estimate_amount": null,
+    "lines": [],
+    "notes": []
+  },
+  "lines": [],
+  "policy_terms": {},
+  "policy": {
+    "is_insured": true,
+    "sum_insured": 500000,
+    "room_rent_cap_per_day": 5000,
+    "copay_pct": 10,
+    "proportionate_deduction": true,
+    "term_evidence": {}
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "rule_code": "R1",
+      "kind": "billing",
+      "severity": "red",
+      "origin": "rule",
+      "line_ids": [1],
+      "title": "Arithmetic Error",
+      "explanation": "Qty x Price does not match Amount.",
+      "amount_at_stake": 100,
+      "confidence": "high",
+      "evidence_ids": ["E1"],
+      "suggested_question": null,
+      "uncertain": false,
+      "agent_note": null,
+      "dismissed": false
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E1",
+      "type": "line",
+      "text": "Line 1 amounts don't add up.",
+      "meta": {}
+    }
+  ],
+  "simulator": {
+    "applied": true,
+    "billed_total": 122000,
+    "non_payable_total": 2000,
+    "room_rent_deduction": 30000,
+    "copay_amount": 9000,
+    "insurer_pays": 81000,
+    "patient_pays": 41000,
+    "steps": [],
+    "assumptions": []
+  },
+  "summary": {
+    "billed_total": 122000,
+    "questionable_total": 1000,
+    "insurer_deductions_total": 32000,
+    "insurer_pays": 81000,
+    "patient_pays": 41000,
+    "counts": {"red": 1, "amber": 0, "info": 0},
+    "agent_stats": {}
+  },
+  "action_pack": {
+    "desk_questions": [],
+    "letter": {
+      "subject": "Query on bill",
+      "body": "Dear Hospital...",
+      "generated_by": "template"
+    },
+    "checklist": []
+  },
+  "mode": "live"
+}

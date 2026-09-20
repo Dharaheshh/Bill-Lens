@@ -1,6 +1,9 @@
-from fastembed import TextEmbedding
-from app.config import settings
 import logging
+
+from fastembed import TextEmbedding
+
+from app.config import settings
+
 
 class Embedder:
     def __init__(self):

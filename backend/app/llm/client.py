@@ -1,7 +1,10 @@
 import asyncio
-from openai import AsyncOpenAI
-from app.config import settings
 import logging
+
+from openai import AsyncOpenAI
+
+from app.config import settings
+
 
 class LLMUnavailable(Exception):
     pass
@@ -51,7 +54,7 @@ class LLMClient:
                     messages=messages,
                 )
                 return response
-            except Exception as e:
+            except Exception:
                 raise LLMUnavailable("Vision LLM failed")
 
 llm_client = LLMClient()

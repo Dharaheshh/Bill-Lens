@@ -1,0 +1,24 @@
+{
+  "billed_total": 28700.0,
+  "questionable_total": 8700.0,
+  "insurer_deductions_total": 8700.0,
+  "insurer_pays": 16000.0,
+  "patient_pays": 12700.0,
+  "planted_findings": [
+    {
+      "rule_code": "R3",
+      "line_no": 2,
+      "at_stake": 500.0
+    },
+    {
+      "rule_code": "R3",
+      "line_no": 3,
+      "at_stake": 200.0
+    },
+    {
+      "rule_code": "C1",
+      "line_no": 1,
+      "at_stake": 8000.0
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "billed_total": 300.0,
+  "questionable_total": 0.0,
+  "insurer_deductions_total": 0.0,
+  "insurer_pays": 0.0,
+  "patient_pays": 300.0,
+  "planted_findings": []
+}
