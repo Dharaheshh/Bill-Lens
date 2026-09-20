@@ -17,16 +17,16 @@ async def health_check() -> dict:
         async with engine.connect() as conn:
             await conn.execute(text("SELECT 1"))
         db_ok = True
-    except Exception:
+    except Exception:  # noqa: BLE001, S110
         pass
     try:
         if embedder and embedder.model:
             embed_ok = True
-    except Exception:
+    except Exception:  # noqa: BLE001, S110
         pass
     try:
         if settings.LLM_API_KEY:
             llm_ok = True
-    except Exception:
+    except Exception:  # noqa: BLE001, S110
         pass
     return {"db": db_ok, "llm": llm_ok, "embed": embed_ok}

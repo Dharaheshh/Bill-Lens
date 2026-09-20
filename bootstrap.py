@@ -1,6 +1,14 @@
+import os
+import json
 
+def write_file(path, content):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+# Task 1
+config_py = """
 from pydantic_settings import BaseSettings
-
 
 class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql+psycopg://billlens:billlens@localhost:5433/billlens"
@@ -26,3 +34,7 @@ class Settings(BaseSettings):
         env_file = ".env"
 
 settings = Settings()
+"""
+write_file("backend/app/config.py", config_py)
+
+print("Bootstrap part 1 done.")

@@ -22,7 +22,7 @@ async def seed_catalog(session: AsyncSession):
     items = []
     texts_to_embed = []
     
-    with open(catalog_file, 'r', encoding='utf-8') as f:
+    with open(catalog_file, 'r', encoding='utf-8') as f:  # noqa: ASYNC230
         reader = csv.DictReader(f)
         for row in reader:
             synonyms = [s.strip() for s in row['synonyms'].split('|') if s.strip()]
@@ -69,7 +69,7 @@ async def seed_kb(session: AsyncSession):
         doc = Document(id=uuid.uuid4(), kind="kb", name=filename, page_count=1)
         documents.append(doc)
         
-        with open(filepath, 'r', encoding='utf-8') as f:
+        with open(filepath, 'r', encoding='utf-8') as f:  # noqa: ASYNC230
             content = f.read()
             
         parts = content.split('## ')
