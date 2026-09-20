@@ -1,5 +1,6 @@
 from pydantic_settings import BaseSettings
 
+
 class Settings(BaseSettings):
     DATABASE_URL: str = "postgresql+psycopg://billlens:billlens@localhost:5433/billlens"
     LLM_BASE_URL: str = ""

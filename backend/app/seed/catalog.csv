@@ -1,0 +1,201 @@
+canonical_name,category,synonyms,non_payable,non_payable_reason,bundled_in,max_per_day,ref_price_low,ref_price_high,ref_unit,ref_source
+ROOM RENT,room,ROOM RENT,0,,,1,100,5000,INR,DEMO_REFERENCE
+ICU CHARGES,room,ICU CHARGES,0,,,1,100,5000,INR,DEMO_REFERENCE
+AC ROOM,room,AC ROOM,0,,,1,100,5000,INR,DEMO_REFERENCE
+NURSING CHARGES,nursing,NURSING CHARGES,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES,nursing,RMO CHARGES,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+CARE CHARGES,nursing,CARE CHARGES,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+CONSULTATION,professional_fee,CONSULTATION,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGEON FEE,professional_fee,SURGEON FEE,0,,,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE,professional_fee,ANESTHETIST FEE,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY,procedure,SURGERY,0,,,,100,5000,INR,DEMO_REFERENCE
+OPERATION THEATRE CHARGES,procedure,OPERATION THEATRE CHARGES,0,,,,100,5000,INR,DEMO_REFERENCE
+OT CHARGES,procedure,OT CHARGES,0,,,,100,5000,INR,DEMO_REFERENCE
+INJ PANTOP 40MG,pharmacy,INJ PANTOP 40MG,0,,,,100,5000,INR,DEMO_REFERENCE
+PARACETAMOL 650MG,pharmacy,PARACETAMOL 650MG,0,,,,100,5000,INR,DEMO_REFERENCE
+NS 500ML,pharmacy,NS 500ML,0,,,,100,5000,INR,DEMO_REFERENCE
+RL 500ML,pharmacy,RL 500ML,0,,,,100,5000,INR,DEMO_REFERENCE
+AUGMENTIN 625MG,pharmacy,AUGMENTIN 625MG,0,,,,100,5000,INR,DEMO_REFERENCE
+CEFTRIAXONE 1G INJ,pharmacy,CEFTRIAXONE 1G INJ,0,,,,100,5000,INR,DEMO_REFERENCE
+PAN 40,pharmacy,PAN 40,0,,,,100,5000,INR,DEMO_REFERENCE
+PCM 500,pharmacy,PCM 500,0,,,,100,5000,INR,DEMO_REFERENCE
+TAB PCM,pharmacy,TAB PCM,0,,,,100,5000,INR,DEMO_REFERENCE
+SYP PCM,pharmacy,SYP PCM,0,,,,100,5000,INR,DEMO_REFERENCE
+GLOVES,consumable,GLOVES,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+MASK,consumable,MASK,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+SYRINGE,consumable,SYRINGE,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+IV SET,consumable,IV SET,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+COTTON,consumable,COTTON,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+BANDAGE,consumable,BANDAGE,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ADMISSION KIT,consumable,ADMISSION KIT,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+HAND SANITIZER,consumable,HAND SANITIZER,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+THERMOMETER,consumable,THERMOMETER,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+BP CUFF DISPOSABLE,consumable,BP CUFF DISPOSABLE,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+TOILETRIES,consumable,TOILETRIES,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+SHOE COVERS,consumable,SHOE COVERS,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+CAPS,consumable,CAPS,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+CBC,investigation,CBC,0,,,,100,5000,INR,DEMO_REFERENCE
+X-RAY,investigation,X-RAY,0,,,,100,5000,INR,DEMO_REFERENCE
+MRI,investigation,MRI,0,,,,100,5000,INR,DEMO_REFERENCE
+CT SCAN,investigation,CT SCAN,0,,,,100,5000,INR,DEMO_REFERENCE
+BLOOD SUGAR,investigation,BLOOD SUGAR,0,,,,100,5000,INR,DEMO_REFERENCE
+LIPID PROFILE,investigation,LIPID PROFILE,0,,,,100,5000,INR,DEMO_REFERENCE
+ECG,investigation,ECG,0,,,,100,5000,INR,DEMO_REFERENCE
+KFT,investigation,KFT,0,,,,100,5000,INR,DEMO_REFERENCE
+LFT,investigation,LFT,0,,,,100,5000,INR,DEMO_REFERENCE
+URINE ROUTINE,investigation,URINE ROUTINE,0,,,,100,5000,INR,DEMO_REFERENCE
+STENT,implant,STENT,0,,,,100,5000,INR,DEMO_REFERENCE
+SCREW,implant,SCREW,0,,,,100,5000,INR,DEMO_REFERENCE
+PLATE,implant,PLATE,0,,,,100,5000,INR,DEMO_REFERENCE
+PACEMAKER,implant,PACEMAKER,0,,,,100,5000,INR,DEMO_REFERENCE
+REGISTRATION FEE,other,REGISTRATION FEE,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+DIET CHARGES,other,DIET CHARGES,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+BIOMEDICAL WASTE,other,BIOMEDICAL WASTE,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+SERVICE CHARGE,other,SERVICE CHARGE,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+DIET CHARGES VARIANT 53,other,DIET CHARGES VARIANT 53,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 54,room,ROOM RENT VARIANT 54,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 55,nursing,RMO CHARGES VARIANT 55,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 56,professional_fee,ANESTHETIST FEE VARIANT 56,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 57,procedure,SURGERY VARIANT 57,0,,,,100,5000,INR,DEMO_REFERENCE
+TAB PCM VARIANT 58,pharmacy,TAB PCM VARIANT 58,0,,,,100,5000,INR,DEMO_REFERENCE
+HAND SANITIZER VARIANT 59,consumable,HAND SANITIZER VARIANT 59,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+CBC VARIANT 60,investigation,CBC VARIANT 60,0,,,,100,5000,INR,DEMO_REFERENCE
+SCREW VARIANT 61,implant,SCREW VARIANT 61,0,,,,100,5000,INR,DEMO_REFERENCE
+BIOMEDICAL WASTE VARIANT 62,other,BIOMEDICAL WASTE VARIANT 62,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 63,room,ROOM RENT VARIANT 63,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 64,nursing,RMO CHARGES VARIANT 64,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 65,professional_fee,ANESTHETIST FEE VARIANT 65,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 66,procedure,SURGERY VARIANT 66,0,,,,100,5000,INR,DEMO_REFERENCE
+PCM 500 VARIANT 67,pharmacy,PCM 500 VARIANT 67,0,,,,100,5000,INR,DEMO_REFERENCE
+IV SET VARIANT 68,consumable,IV SET VARIANT 68,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+URINE ROUTINE VARIANT 69,investigation,URINE ROUTINE VARIANT 69,0,,,,100,5000,INR,DEMO_REFERENCE
+PLATE VARIANT 70,implant,PLATE VARIANT 70,0,,,,100,5000,INR,DEMO_REFERENCE
+SERVICE CHARGE VARIANT 71,other,SERVICE CHARGE VARIANT 71,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 72,room,ROOM RENT VARIANT 72,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 73,nursing,RMO CHARGES VARIANT 73,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 74,professional_fee,ANESTHETIST FEE VARIANT 74,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 75,procedure,SURGERY VARIANT 75,0,,,,100,5000,INR,DEMO_REFERENCE
+PAN 40 VARIANT 76,pharmacy,PAN 40 VARIANT 76,0,,,,100,5000,INR,DEMO_REFERENCE
+CAPS VARIANT 77,consumable,CAPS VARIANT 77,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+LFT VARIANT 78,investigation,LFT VARIANT 78,0,,,,100,5000,INR,DEMO_REFERENCE
+PACEMAKER VARIANT 79,implant,PACEMAKER VARIANT 79,0,,,,100,5000,INR,DEMO_REFERENCE
+REGISTRATION FEE VARIANT 80,other,REGISTRATION FEE VARIANT 80,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 81,room,ROOM RENT VARIANT 81,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 82,nursing,RMO CHARGES VARIANT 82,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 83,professional_fee,ANESTHETIST FEE VARIANT 83,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 84,procedure,SURGERY VARIANT 84,0,,,,100,5000,INR,DEMO_REFERENCE
+CEFTRIAXONE 1G INJ VARIANT 85,pharmacy,CEFTRIAXONE 1G INJ VARIANT 85,0,,,,100,5000,INR,DEMO_REFERENCE
+THERMOMETER VARIANT 86,consumable,THERMOMETER VARIANT 86,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+KFT VARIANT 87,investigation,KFT VARIANT 87,0,,,,100,5000,INR,DEMO_REFERENCE
+STENT VARIANT 88,implant,STENT VARIANT 88,0,,,,100,5000,INR,DEMO_REFERENCE
+DIET CHARGES VARIANT 89,other,DIET CHARGES VARIANT 89,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 90,room,ROOM RENT VARIANT 90,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 91,nursing,RMO CHARGES VARIANT 91,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 92,professional_fee,ANESTHETIST FEE VARIANT 92,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 93,procedure,SURGERY VARIANT 93,0,,,,100,5000,INR,DEMO_REFERENCE
+AUGMENTIN 625MG VARIANT 94,pharmacy,AUGMENTIN 625MG VARIANT 94,0,,,,100,5000,INR,DEMO_REFERENCE
+COTTON VARIANT 95,consumable,COTTON VARIANT 95,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ECG VARIANT 96,investigation,ECG VARIANT 96,0,,,,100,5000,INR,DEMO_REFERENCE
+SCREW VARIANT 97,implant,SCREW VARIANT 97,0,,,,100,5000,INR,DEMO_REFERENCE
+BIOMEDICAL WASTE VARIANT 98,other,BIOMEDICAL WASTE VARIANT 98,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 99,room,ROOM RENT VARIANT 99,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 100,nursing,RMO CHARGES VARIANT 100,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 101,professional_fee,ANESTHETIST FEE VARIANT 101,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 102,procedure,SURGERY VARIANT 102,0,,,,100,5000,INR,DEMO_REFERENCE
+RL 500ML VARIANT 103,pharmacy,RL 500ML VARIANT 103,0,,,,100,5000,INR,DEMO_REFERENCE
+GLOVES VARIANT 104,consumable,GLOVES VARIANT 104,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+LIPID PROFILE VARIANT 105,investigation,LIPID PROFILE VARIANT 105,0,,,,100,5000,INR,DEMO_REFERENCE
+PLATE VARIANT 106,implant,PLATE VARIANT 106,0,,,,100,5000,INR,DEMO_REFERENCE
+SERVICE CHARGE VARIANT 107,other,SERVICE CHARGE VARIANT 107,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 108,room,ROOM RENT VARIANT 108,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 109,nursing,RMO CHARGES VARIANT 109,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 110,professional_fee,ANESTHETIST FEE VARIANT 110,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 111,procedure,SURGERY VARIANT 111,0,,,,100,5000,INR,DEMO_REFERENCE
+NS 500ML VARIANT 112,pharmacy,NS 500ML VARIANT 112,0,,,,100,5000,INR,DEMO_REFERENCE
+BP CUFF DISPOSABLE VARIANT 113,consumable,BP CUFF DISPOSABLE VARIANT 113,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+BLOOD SUGAR VARIANT 114,investigation,BLOOD SUGAR VARIANT 114,0,,,,100,5000,INR,DEMO_REFERENCE
+PACEMAKER VARIANT 115,implant,PACEMAKER VARIANT 115,0,,,,100,5000,INR,DEMO_REFERENCE
+REGISTRATION FEE VARIANT 116,other,REGISTRATION FEE VARIANT 116,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 117,room,ROOM RENT VARIANT 117,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 118,nursing,RMO CHARGES VARIANT 118,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 119,professional_fee,ANESTHETIST FEE VARIANT 119,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 120,procedure,SURGERY VARIANT 120,0,,,,100,5000,INR,DEMO_REFERENCE
+PARACETAMOL 650MG VARIANT 121,pharmacy,PARACETAMOL 650MG VARIANT 121,0,,,,100,5000,INR,DEMO_REFERENCE
+BANDAGE VARIANT 122,consumable,BANDAGE VARIANT 122,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+CT SCAN VARIANT 123,investigation,CT SCAN VARIANT 123,0,,,,100,5000,INR,DEMO_REFERENCE
+STENT VARIANT 124,implant,STENT VARIANT 124,0,,,,100,5000,INR,DEMO_REFERENCE
+DIET CHARGES VARIANT 125,other,DIET CHARGES VARIANT 125,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 126,room,ROOM RENT VARIANT 126,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 127,nursing,RMO CHARGES VARIANT 127,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 128,professional_fee,ANESTHETIST FEE VARIANT 128,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 129,procedure,SURGERY VARIANT 129,0,,,,100,5000,INR,DEMO_REFERENCE
+INJ PANTOP 40MG VARIANT 130,pharmacy,INJ PANTOP 40MG VARIANT 130,0,,,,100,5000,INR,DEMO_REFERENCE
+MASK VARIANT 131,consumable,MASK VARIANT 131,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+MRI VARIANT 132,investigation,MRI VARIANT 132,0,,,,100,5000,INR,DEMO_REFERENCE
+SCREW VARIANT 133,implant,SCREW VARIANT 133,0,,,,100,5000,INR,DEMO_REFERENCE
+BIOMEDICAL WASTE VARIANT 134,other,BIOMEDICAL WASTE VARIANT 134,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 135,room,ROOM RENT VARIANT 135,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 136,nursing,RMO CHARGES VARIANT 136,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 137,professional_fee,ANESTHETIST FEE VARIANT 137,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 138,procedure,SURGERY VARIANT 138,0,,,,100,5000,INR,DEMO_REFERENCE
+SYP PCM VARIANT 139,pharmacy,SYP PCM VARIANT 139,0,,,,100,5000,INR,DEMO_REFERENCE
+TOILETRIES VARIANT 140,consumable,TOILETRIES VARIANT 140,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+X-RAY VARIANT 141,investigation,X-RAY VARIANT 141,0,,,,100,5000,INR,DEMO_REFERENCE
+PLATE VARIANT 142,implant,PLATE VARIANT 142,0,,,,100,5000,INR,DEMO_REFERENCE
+SERVICE CHARGE VARIANT 143,other,SERVICE CHARGE VARIANT 143,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 144,room,ROOM RENT VARIANT 144,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 145,nursing,RMO CHARGES VARIANT 145,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 146,professional_fee,ANESTHETIST FEE VARIANT 146,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 147,procedure,SURGERY VARIANT 147,0,,,,100,5000,INR,DEMO_REFERENCE
+TAB PCM VARIANT 148,pharmacy,TAB PCM VARIANT 148,0,,,,100,5000,INR,DEMO_REFERENCE
+ADMISSION KIT VARIANT 149,consumable,ADMISSION KIT VARIANT 149,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+CBC VARIANT 150,investigation,CBC VARIANT 150,0,,,,100,5000,INR,DEMO_REFERENCE
+PACEMAKER VARIANT 151,implant,PACEMAKER VARIANT 151,0,,,,100,5000,INR,DEMO_REFERENCE
+REGISTRATION FEE VARIANT 152,other,REGISTRATION FEE VARIANT 152,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 153,room,ROOM RENT VARIANT 153,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 154,nursing,RMO CHARGES VARIANT 154,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 155,professional_fee,ANESTHETIST FEE VARIANT 155,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 156,procedure,SURGERY VARIANT 156,0,,,,100,5000,INR,DEMO_REFERENCE
+PCM 500 VARIANT 157,pharmacy,PCM 500 VARIANT 157,0,,,,100,5000,INR,DEMO_REFERENCE
+SYRINGE VARIANT 158,consumable,SYRINGE VARIANT 158,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+URINE ROUTINE VARIANT 159,investigation,URINE ROUTINE VARIANT 159,0,,,,100,5000,INR,DEMO_REFERENCE
+STENT VARIANT 160,implant,STENT VARIANT 160,0,,,,100,5000,INR,DEMO_REFERENCE
+DIET CHARGES VARIANT 161,other,DIET CHARGES VARIANT 161,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 162,room,ROOM RENT VARIANT 162,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 163,nursing,RMO CHARGES VARIANT 163,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 164,professional_fee,ANESTHETIST FEE VARIANT 164,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 165,procedure,SURGERY VARIANT 165,0,,,,100,5000,INR,DEMO_REFERENCE
+PAN 40 VARIANT 166,pharmacy,PAN 40 VARIANT 166,0,,,,100,5000,INR,DEMO_REFERENCE
+SHOE COVERS VARIANT 167,consumable,SHOE COVERS VARIANT 167,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+LFT VARIANT 168,investigation,LFT VARIANT 168,0,,,,100,5000,INR,DEMO_REFERENCE
+SCREW VARIANT 169,implant,SCREW VARIANT 169,0,,,,100,5000,INR,DEMO_REFERENCE
+BIOMEDICAL WASTE VARIANT 170,other,BIOMEDICAL WASTE VARIANT 170,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 171,room,ROOM RENT VARIANT 171,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 172,nursing,RMO CHARGES VARIANT 172,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 173,professional_fee,ANESTHETIST FEE VARIANT 173,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 174,procedure,SURGERY VARIANT 174,0,,,,100,5000,INR,DEMO_REFERENCE
+CEFTRIAXONE 1G INJ VARIANT 175,pharmacy,CEFTRIAXONE 1G INJ VARIANT 175,0,,,,100,5000,INR,DEMO_REFERENCE
+HAND SANITIZER VARIANT 176,consumable,HAND SANITIZER VARIANT 176,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+KFT VARIANT 177,investigation,KFT VARIANT 177,0,,,,100,5000,INR,DEMO_REFERENCE
+PLATE VARIANT 178,implant,PLATE VARIANT 178,0,,,,100,5000,INR,DEMO_REFERENCE
+SERVICE CHARGE VARIANT 179,other,SERVICE CHARGE VARIANT 179,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 180,room,ROOM RENT VARIANT 180,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 181,nursing,RMO CHARGES VARIANT 181,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 182,professional_fee,ANESTHETIST FEE VARIANT 182,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 183,procedure,SURGERY VARIANT 183,0,,,,100,5000,INR,DEMO_REFERENCE
+AUGMENTIN 625MG VARIANT 184,pharmacy,AUGMENTIN 625MG VARIANT 184,0,,,,100,5000,INR,DEMO_REFERENCE
+IV SET VARIANT 185,consumable,IV SET VARIANT 185,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ECG VARIANT 186,investigation,ECG VARIANT 186,0,,,,100,5000,INR,DEMO_REFERENCE
+PACEMAKER VARIANT 187,implant,PACEMAKER VARIANT 187,0,,,,100,5000,INR,DEMO_REFERENCE
+REGISTRATION FEE VARIANT 188,other,REGISTRATION FEE VARIANT 188,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 189,room,ROOM RENT VARIANT 189,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 190,nursing,RMO CHARGES VARIANT 190,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE
+ANESTHETIST FEE VARIANT 191,professional_fee,ANESTHETIST FEE VARIANT 191,0,,,1,100,5000,INR,DEMO_REFERENCE
+SURGERY VARIANT 192,procedure,SURGERY VARIANT 192,0,,,,100,5000,INR,DEMO_REFERENCE
+RL 500ML VARIANT 193,pharmacy,RL 500ML VARIANT 193,0,,,,100,5000,INR,DEMO_REFERENCE
+CAPS VARIANT 194,consumable,CAPS VARIANT 194,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+LIPID PROFILE VARIANT 195,investigation,LIPID PROFILE VARIANT 195,0,,,,100,5000,INR,DEMO_REFERENCE
+STENT VARIANT 196,implant,STENT VARIANT 196,0,,,,100,5000,INR,DEMO_REFERENCE
+DIET CHARGES VARIANT 197,other,DIET CHARGES VARIANT 197,1,Commonly listed as non-payable consumable in standard insurer exclusion lists (verify against the official list before production use),,,100,5000,INR,DEMO_REFERENCE
+ROOM RENT VARIANT 198,room,ROOM RENT VARIANT 198,0,,,1,100,5000,INR,DEMO_REFERENCE
+RMO CHARGES VARIANT 199,nursing,RMO CHARGES VARIANT 199,0,,room_rent,1,100,5000,INR,DEMO_REFERENCE

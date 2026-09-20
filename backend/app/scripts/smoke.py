@@ -1,9 +1,12 @@
 import asyncio
+
 from sqlalchemy import text
-from app.db import engine
-from app.rag.embed import embedder
-from app.llm.client import llm_client
+
 from app.config import settings
+from app.db import engine
+from app.llm.client import llm_client
+from app.rag.embed import embedder
+
 
 async def run_smoke_test():
     print("Running Smoke Tests...")

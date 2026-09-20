@@ -1,8 +1,9 @@
-from sqlalchemy import Column, Integer, String, Boolean, Float, ForeignKey, DateTime, JSON, Text, func
-from sqlalchemy.dialects.postgresql import UUID, JSONB, ARRAY
-from sqlalchemy.orm import declarative_base
-from pgvector.sqlalchemy import Vector
 import uuid
+
+from pgvector.sqlalchemy import Vector
+from sqlalchemy import Boolean, Column, DateTime, Float, ForeignKey, Integer, Text, func
+from sqlalchemy.dialects.postgresql import ARRAY, JSONB, UUID
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
