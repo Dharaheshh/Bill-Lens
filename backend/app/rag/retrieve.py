@@ -66,7 +66,7 @@ async def search(
                     "text": row[3],
                     "similarity": float(row[4]),
                 })
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.warning("Dense search failed, falling back: %s", e)
         results = await _numpy_fallback(session, scope, query, k * 2)
 
@@ -74,7 +74,7 @@ async def search(
     seen_ids = {r["chunk_id"] for r in results}
     query_lower = query.lower()
     boost_terms = []
-    for _, terms in KEYWORD_BOOSTS.items():
+    for terms in KEYWORD_BOOSTS.values():
         for term in terms:
             if term in query_lower:
                 boost_terms.append(f"%{term}%")
@@ -120,7 +120,7 @@ async def search(
                     for r in results:
                         if r["chunk_id"] == cid:
                             r["similarity"] = max(r["similarity"], 0.6)
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             logger.warning("Keyword search failed: %s", e)
 
     # Sort and return top k
@@ -174,6 +174,6 @@ async def _numpy_fallback(
 
         results.sort(key=lambda x: x["similarity"], reverse=True)
         return results[:k]
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.error("Numpy fallback also failed: %s", e)
         return []

@@ -4,7 +4,8 @@ run_agent implements the step-based tool-calling loop with fallback.
 """
 import json
 import logging
-from typing import Any, Callable
+from collections.abc import Callable
+from typing import Any
 
 from pydantic import BaseModel
 
@@ -93,7 +94,7 @@ async def run_agent(
                 out = validate(json_text, ctx)
                 ctx.emit(spec.name, "stage_end", f"{spec.name}: done")
                 return out
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001
                 logger.warning("%s: validation failed at step %d: %s", spec.name, step, e)
                 msgs.append({"role": "user", "content": "Your output was not valid JSON for the schema. Return ONLY valid JSON."})
                 continue

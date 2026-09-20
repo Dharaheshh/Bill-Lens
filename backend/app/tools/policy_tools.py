@@ -1,6 +1,5 @@
 """Policy and calc tools: search_policy, get_clause, calc_room_cap."""
 import logging
-from typing import Any
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -79,7 +78,7 @@ async def get_clause(session: AsyncSession, chunk_id: int) -> ToolResult:
         }
         evidence = [Evidence(id="", type="clause", text=row[4][:500], meta={"page": row[2], "chunk_id": chunk_id})]
         return ToolResult(ok=True, data=chunk_data, summary=f"Chunk {chunk_id}: page {row[2]}", evidence=evidence)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.warning("get_clause failed: %s", e)
         return ToolResult(ok=False, data={}, summary=f"Error: {e}")
 

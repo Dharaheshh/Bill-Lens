@@ -44,7 +44,7 @@ class ToolRegistry:
             return result
         except asyncio.TimeoutError:
             return ToolResult(ok=False, data=None, summary=f"Tool {tool_name} timed out")
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             logger.warning("Tool %s failed: %s", tool_name, e)
             return ToolResult(ok=False, data=None, summary=f"Tool {tool_name} error: {e}")
 

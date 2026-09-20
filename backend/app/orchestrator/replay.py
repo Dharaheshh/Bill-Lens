@@ -2,11 +2,9 @@
 import asyncio
 import json
 import logging
-import uuid
 from pathlib import Path
-from typing import Any
 
-from sqlalchemy import insert
+from sqlalchemy import insert, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import Run, TraceEvent
@@ -26,7 +24,7 @@ async def trigger_replay(session: AsyncSession, sample_id: str, run_id: str) -> 
         await session.commit()
         return
 
-    with open(replay_file) as f:
+    with open(replay_file) as f:  # noqa: ASYNC230
         data = json.load(f)
     
     events = data.get("events", [])
@@ -64,8 +62,7 @@ async def trigger_replay(session: AsyncSession, sample_id: str, run_id: str) -> 
             )
         )
         
-        if ev_data.get("type") == "stage_end" and ev_data.get("agent") == "orchestrator":
-            if "extract" in ev_data.get("title", "").lower() or "awaiting" in ev_data.get("title", "").lower():
+        if ev_data.get("type") == "stage_end" and ev_data.get("agent") == "orchestrator" and ("extract" in ev_data.get("title", "").lower() or "awaiting" in ev_data.get("title", "").lower()):
                 await session.execute(update(Run).where(Run.id == run_id).values(status="awaiting_verification"))
                 await session.commit()
                 # Pause for "user verification" in demo

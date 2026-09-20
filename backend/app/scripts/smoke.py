@@ -16,7 +16,7 @@ async def run_smoke_test():
         async with engine.connect() as conn:
             await conn.execute(text("SELECT 1"))
         print("[PASS] DB Connect")
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print(f"[FAIL] DB Connect: {e}")
 
     # 2. pgvector
@@ -25,7 +25,7 @@ async def run_smoke_test():
             await conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
             await conn.execute(text("SELECT '[1,2,3]'::vector"))
         print("[PASS] pgvector extension")
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print(f"[FAIL] pgvector extension: {e}")
 
     # 3. Embedder
@@ -35,7 +35,7 @@ async def run_smoke_test():
             print("[PASS] Embedding (dim match)")
         else:
             print(f"[FAIL] Embedding: expected {settings.EMBED_DIM} dims, got {len(vec)}")
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         print(f"[FAIL] Embedding: {e}")
 
     # 4. LLM Text
@@ -48,7 +48,7 @@ async def run_smoke_test():
                 print("[PASS] LLM Text")
             else:
                 print("[FAIL] LLM Text")
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
          print(f"[FAIL] LLM Text: {e}")
 
     # 5. LLM Vision
@@ -58,7 +58,7 @@ async def run_smoke_test():
         else:
             # Note: A real call requires a base64 image. In Phase 0, we can just ensure it doesn't immediately crash or we do a dummy image.
             print("[PASS] LLM Vision (skipped real image due to Phase 0 constraints without key)")
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
          print(f"[FAIL] LLM Vision: {e}")
 
 import sys

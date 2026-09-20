@@ -128,7 +128,7 @@ async def apply_rules(
             # Count > max_per_day → RED
             if len(group) > max_per:
                 extras = group[max_per:]
-                extra_ids = [l.line_no for l in extras]
+
                 all_ids = [l.line_no for l in group]
                 stake = round(sum(l.amount for l in extras), 2)
                 eid = f"ev-r2-{uuid.uuid4().hex[:8]}"

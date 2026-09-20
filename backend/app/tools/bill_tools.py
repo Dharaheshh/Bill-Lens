@@ -1,8 +1,7 @@
 """Bill tools: validate_totals, find_duplicates, get_line_context."""
 import logging
-from typing import Any
 
-from app.schemas import Evidence, MatchedLine
+from app.schemas import Evidence
 from app.tools.registry import ToolResult
 
 logger = logging.getLogger(__name__)
@@ -66,7 +65,7 @@ async def find_duplicates(lines: list[dict], line_no: int) -> ToolResult:
 
     target_name = target.get("canonical_name") or target.get("raw_text", "").upper()
     target_date = target.get("service_date")
-    target_amount = target.get("amount")
+
 
     duplicates = []
     for line in lines:

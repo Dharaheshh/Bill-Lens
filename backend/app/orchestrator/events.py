@@ -6,8 +6,8 @@ import logging
 import time
 from typing import Any
 
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import insert
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import TraceEvent as TraceEventModel
 from app.schemas import Evidence, TraceEvent
@@ -122,7 +122,7 @@ class RunContext:
             ).on_conflict_do_nothing()
             await self.session.execute(stmt)
             await self.session.commit()
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             logger.debug("Failed to persist trace event: %s", e)
 
     def agent_stats(self) -> dict[str, int]:

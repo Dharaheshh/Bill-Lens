@@ -3,7 +3,6 @@ Claim simulator per SPEC §6. Pure Python — no LLM, no DB.
 Returns (SimulatorResult, list[Finding]) where the Finding list contains the C1 finding if applicable.
 """
 import uuid
-from typing import Optional
 
 from app.schemas import (
     Evidence,
@@ -111,8 +110,8 @@ def simulate_claim(
 
     # ── STEP 3: room_rent_deduction ─────────────────────────────────────
     room_rent_deduction = 0.0
-    actual_rent_per_day: Optional[float] = None
-    room_line: Optional[MatchedLine] = None
+    actual_rent_per_day: float | None = None
+    room_line: MatchedLine | None = None
 
     room_lines = [l for l in lines if l.category == "room" and l.line_no not in non_payable_line_ids]
     if room_lines:
@@ -156,7 +155,7 @@ def simulate_claim(
                 f"Room at ₹{actual_rent_per_day:,.0f}/day exceeds policy cap of ₹{cap:,.0f}/day "
                 f"(ratio {ratio:.4f}). "
                 + (
-                    f"Proportionate deduction applied to room-linked charges."
+                    "Proportionate deduction applied to room-linked charges."
                     if policy.proportionate_deduction
                     else "Deduction applied to room charges only."
                 )

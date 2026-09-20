@@ -6,7 +6,6 @@ import base64
 import hashlib
 import json
 import logging
-import time
 from typing import Any
 
 from openai import AsyncOpenAI
@@ -114,7 +113,7 @@ class LLMClient:
                     )
                 except LLMUnavailable:
                     raise
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001
                     if attempt == 0:
                         await asyncio.sleep(1)
                         continue
@@ -128,7 +127,7 @@ class LLMClient:
                 try:
                     fb_kwargs = {**kwargs, "model": fb_model}
                     return await asyncio.wait_for(self._try_call(fb, **fb_kwargs), timeout=25.0)
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001
                     logger.warning("Fallback LLM failed: %s", e)
 
             raise LLMUnavailable("All LLM providers failed")
@@ -159,7 +158,7 @@ class LLMClient:
                     return await asyncio.wait_for(self._try_call(self._get_primary(), **kwargs), timeout=45.0)
                 except LLMUnavailable:
                     raise
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001
                     if attempt == 0:
                         await asyncio.sleep(1)
                         continue

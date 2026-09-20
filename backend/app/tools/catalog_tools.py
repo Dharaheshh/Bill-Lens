@@ -1,8 +1,8 @@
 """Catalog tools: search_catalog, lookup_reference_price."""
 import logging
 
+from sqlalchemy import select, text
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import text, select
 
 from app.models import CatalogItem
 from app.rag.embed import embedder
@@ -53,7 +53,7 @@ async def search_catalog(session: AsyncSession, query: str, k: int = 5) -> ToolR
             for r in results
         ]
         return ToolResult(ok=bool(results), data=results, summary=f"Found {len(results)} catalog items for '{query}'", evidence=evidence)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.warning("search_catalog failed: %s", e)
         return ToolResult(ok=False, data=[], summary=f"Catalog search error: {e}")
 
@@ -81,6 +81,6 @@ async def lookup_reference_price(session: AsyncSession, catalog_id: int) -> Tool
             meta={"catalog_id": catalog_id},
         )]
         return ToolResult(ok=True, data=data, summary=f"Ref price for {item.canonical_name}: ₹{item.ref_price_low}–{item.ref_price_high}", evidence=evidence)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.warning("lookup_reference_price failed: %s", e)
         return ToolResult(ok=False, data={}, summary=f"Error: {e}")

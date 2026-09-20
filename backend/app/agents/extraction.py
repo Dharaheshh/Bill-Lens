@@ -1,14 +1,14 @@
 import io
-import json
 import logging
-from typing import Any
+
 import fitz
 from PIL import Image
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.schemas import ExtractedBill, BillLine
+
+from app.llm.client import LLMUnavailable, llm_client
 from app.orchestrator.events import RunContext
-from app.llm.client import llm_client, LLMUnavailable
+from app.schemas import BillLine, ExtractedBill
 
 logger = logging.getLogger(__name__)
 
@@ -48,7 +48,7 @@ def process_file(file_path: str) -> list[bytes]:
             bio = io.BytesIO()
             img.save(bio, format="JPEG", quality=85)
             images.append(bio.getvalue())
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.error(f"Image processing error: {e}")
     return images
 
@@ -60,8 +60,7 @@ def validate_totals_fn(lines: list[BillLine], stated_total: float | None) -> tup
     
     mismatches = []
     for l in lines:
-        if l.qty is not None and l.unit_price is not None and l.amount is not None:
-            if abs(l.qty * l.unit_price - l.amount) > 1.0:
+        if l.qty is not None and l.unit_price is not None and l.amount is not None and abs(l.qty * l.unit_price - l.amount) > 1.0:
                 mismatches.append({"line_no": l.line_no, "expected": l.qty * l.unit_price, "actual": l.amount})
                 
     valid = diff <= 1.0 and len(mismatches) == 0
@@ -111,14 +110,13 @@ async def run_extraction_agent(
                         if c.amount is not None: l.amount = c.amount
                         
                 for no in rep.remove_line_nos:
-                    if no in line_map:
-                        del line_map[no]
+                    line_map.pop(no, None)
                         
                 for ml in rep.missing_lines:
                     line_map[ml.line_no] = ml
                     
                 bill.lines = sorted(line_map.values(), key=lambda x: x.line_no)
-            except Exception as e:
+            except Exception as e:  # noqa: BLE001
                 logger.error(f"Repair loop failed: {e}")
                 break
                 
@@ -130,7 +128,7 @@ async def run_extraction_agent(
                     l.extraction_flag = True
                     
         return bill
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.error(f"Extraction error: {e}")
         return ExtractedBill(hospital_name="Unknown", lines=[])
     finally:

@@ -3,10 +3,8 @@ Main orchestrator runner: policy_ingest and bill_audit phases.
 SPEC §10.2 — all stages wrapped with fallback, watchdog timeout 120s.
 """
 import asyncio
-import hashlib
 import json
 import logging
-import uuid
 from pathlib import Path
 
 from sqlalchemy import select, update
@@ -26,11 +24,9 @@ from app.rag.ingest import ingest_pdf
 from app.schemas import (
     ActionPack,
     ExtractedBill,
-    Finding,
     MatchedLine,
     ResolvedPolicy,
     RunResult,
-    Summary,
 )
 
 logger = logging.getLogger(__name__)
@@ -119,7 +115,7 @@ async def run_policy_ingest(
                 await session.commit()
                 await _update_run(session, run_id, status="done")
                 ctx.emit("orchestrator", "done", f"Policy ingested: {sum(1 for t in terms.values() if t.status == 'extracted')} terms extracted")
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             logger.error("Policy ingest failed: %s", e)
             ctx.emit("orchestrator", "error", f"Policy ingest failed: {e}")
             await _update_run(session, run_id, status="failed", error=str(e))
@@ -173,7 +169,7 @@ async def run_bill_audit_phase1(run_id: str, bill_id: str, auto_confirm: bool = 
                 else:
                     await _update_run(session, run_id, status="awaiting_verification", phase="phase1")
                     ctx.emit("orchestrator", "stage_end", "Bill extracted — awaiting user verification")
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             logger.error("Phase 1 failed: %s", e)
             ctx.emit("orchestrator", "error", f"Phase 1 failed: {e}")
             await _update_run(session, run_id, status="failed", error=str(e))
@@ -211,7 +207,7 @@ async def run_bill_audit_phase2(
         try:
             async with asyncio.timeout(WATCHDOG_TIMEOUT):
                 await _run_phase2_internal(run_id, bill_id, extracted, lines, bill_row, session, ctx, policy, policy_terms)
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
             logger.error("Phase 2 failed: %s", e)
             ctx.emit("orchestrator", "error", f"Phase 2 failed: {e}")
             await _update_run(session, run_id, status="failed", error=str(e))
@@ -238,7 +234,7 @@ async def _run_phase2_internal(
     # Rules
     ctx.emit("rules", "stage_start", f"Running R1-R6 on {len(lines)} lines")
     findings, evidence = await apply_rules(session, extracted, lines, policy)
-    all_evidence = ctx.evidence.get_all()
+
     # Add rule-generated evidence
     for ev in evidence:
         ctx.evidence.add([ev])
@@ -247,7 +243,7 @@ async def _run_phase2_internal(
     # Audit Agent
     try:
         findings = await run_audit_agent(session, lines, findings, policy_terms, ctx)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         ctx.emit("audit", "warning", f"Audit agent error: {e} — baseline findings stand")
 
     # Simulator
@@ -255,6 +251,7 @@ async def _run_phase2_internal(
     # collect catalog_non_payable from lines that are matched non-payable
     catalog_non_payable: set[int] = set()
     from sqlalchemy import select as _select
+
     from app.models import CatalogItem as _CatalogItem
     matched_ids = [l.catalog_id for l in lines if l.catalog_id is not None]
     if matched_ids:
@@ -263,7 +260,7 @@ async def _run_phase2_internal(
             for _item in _res.scalars():
                 if _item.non_payable:
                     catalog_non_payable.add(_item.id)
-        except Exception as _e:
+        except Exception as _e:  # noqa: BLE001
             logger.warning("Could not fetch catalog for simulator: %s", _e)
 
     simulator_result, c1_findings = simulate_claim(extracted, lines, policy, findings, catalog_non_payable)
@@ -293,7 +290,7 @@ async def _run_phase2_internal(
             bill_date=str(extracted.bill_date or ""),
             ctx=ctx,
         )
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         ctx.emit("action", "warning", f"Action agent failed: {e} — no action pack")
 
     # Build RunResult
@@ -301,7 +298,7 @@ async def _run_phase2_internal(
         run_id=run_id,
         bill=extracted,
         lines=lines,
-        policy_terms={k: v if not isinstance(v, dict) else v for k, v in policy_terms.items()},
+        policy_terms=policy_terms,
         policy=policy,
         findings=findings,
         evidence=ctx.evidence.get_all(),
@@ -324,8 +321,8 @@ async def _run_phase2_internal(
 
 def _load_sample_extraction(filename: str) -> ExtractedBill:
     """Load golden line fixture for sample bills."""
+
     from app.schemas import BillLine
-    import os
 
     sample_id = "sample-a-ortho-insured"
     if "sample-b" in (filename or ""):

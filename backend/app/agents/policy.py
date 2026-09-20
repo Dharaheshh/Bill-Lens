@@ -5,7 +5,6 @@ Falls back to not_found on any failure.
 import asyncio
 import json
 import logging
-from typing import Any
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -46,7 +45,7 @@ async def extract_one_term(
     query = TERM_QUERIES.get(key, key)
     try:
         chunks = await search(session, f"policy:{document_id}", query, k=4)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.warning("Policy retrieval failed for %s: %s", key, e)
         return PolicyTerm(key=key, status="not_found")  # type: ignore[arg-type]
 
@@ -101,7 +100,7 @@ async def extract_one_term(
 
         # Register evidence
         ev = Evidence(id="", type="clause", text=quote or chunk_text[:300], meta={"page": page, "similarity": similarity, "chunk_id": chunk_id})
-        [ev_id] = ctx.evidence.add([ev])
+        [_ev_id] = ctx.evidence.add([ev])
 
         ctx.emit("policy", "finding", f"Extracted {key}: {value}", data={"key": key, "value": value, "page": page})
 
@@ -119,7 +118,7 @@ async def extract_one_term(
     except LLMUnavailable:
         ctx.emit("policy", "warning", f"LLM unavailable for {key} — marking not_found")
         return PolicyTerm(key=key, status="not_found")  # type: ignore[arg-type]
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.warning("Policy extraction failed for %s: %s", key, e)
         return PolicyTerm(key=key, status="not_found")  # type: ignore[arg-type]
 

@@ -1,11 +1,9 @@
-import json
-from fastapi import HTTPException
 import asyncio
-import uuid
+import json
 import logging
-from typing import Any
+import uuid
 
-from fastapi import BackgroundTasks, FastAPI, File, Request, UploadFile
+from fastapi import BackgroundTasks, FastAPI, File, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlalchemy import select, text, update
@@ -17,7 +15,11 @@ from app.db import AsyncSessionLocal, engine
 from app.models import Base, Bill, Policy, Run, TraceEvent
 from app.orchestrator.events import get_or_create_queue
 from app.orchestrator.replay import trigger_replay
-from app.orchestrator.runner import run_bill_audit_phase1, run_bill_audit_phase2, run_policy_ingest
+from app.orchestrator.runner import (
+    run_bill_audit_phase1,
+    run_bill_audit_phase2,
+    run_policy_ingest,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -49,14 +51,14 @@ async def health_check():
         async with engine.connect() as conn:
             await conn.execute(text("SELECT 1"))
         db_ok = True
-    except Exception:
+    except Exception:  # noqa: BLE001, S110
         pass
 
     try:
         from app.rag.embed import embedder
         if embedder:
             embed_ok = True
-    except Exception:
+    except Exception:  # noqa: BLE001, S110
         pass
 
     if settings.LLM_API_KEY:
@@ -96,13 +98,13 @@ async def get_samples():
 
 
 @app.post("/policies")
-async def ingest_policy(background_tasks: BackgroundTasks, file: UploadFile = File(...)):
+async def ingest_policy(background_tasks: BackgroundTasks, file: UploadFile = File(...)):  # noqa: B008
     policy_id = str(uuid.uuid4())
     run_id = str(uuid.uuid4())
 
     # Save temp
-    import tempfile
     import os
+    import tempfile
     fd, path = tempfile.mkstemp(suffix=".pdf")
     with os.fdopen(fd, "wb") as f:
         f.write(await file.read())
@@ -140,7 +142,7 @@ async def update_policy_terms(id: str, payload: PolicyTermsUpdate):
 
 
 @app.post("/bills")
-async def upload_bill(file: UploadFile = File(...)):
+async def upload_bill(file: UploadFile = File(...)):  # noqa: B008
     bill_id = str(uuid.uuid4())
     async with AsyncSessionLocal() as session:
         session.add(Bill(id=bill_id, filename=file.filename, is_insured=True))

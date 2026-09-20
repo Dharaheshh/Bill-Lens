@@ -11,7 +11,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.llm.client import LLMUnavailable, llm_client
 from app.orchestrator.events import RunContext
-from app.schemas import Evidence, Finding, MatchedLine
+from app.schemas import Finding, MatchedLine
 from app.tools.bill_tools import find_duplicates, get_line_context
 from app.tools.catalog_tools import lookup_reference_price, search_catalog
 
@@ -107,7 +107,7 @@ def _merge_proposal(
     question = proposal.get("suggested_question")
 
     new_findings = list(findings)
-    line_findings = [f for f in findings if line_no in f.line_ids]
+
 
     if verdict == "confirm":
         # Attach agent note and evidence to existing findings (severity unchanged)
@@ -208,7 +208,7 @@ async def _investigate_line(
                     validated = _validate_proposal(proposal, line, findings, ctx)
                     ctx.emit("audit", "validation", f"Proposal for line {line.line_no}: {proposal.get('verdict')}")
                     return validated
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001
                     logger.warning("Audit parse failed at step %d: %s", step, e)
                     msgs.append({"role": "user", "content": "Return ONLY valid JSON as specified."})
 

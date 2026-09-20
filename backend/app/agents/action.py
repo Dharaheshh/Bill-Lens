@@ -2,13 +2,19 @@
 Action Agent: desk questions, checklist, query letter.
 All ₹ amounts code-validated. Template fallback always available.
 """
-import json
 import logging
 import re
 
 from app.llm.client import LLMUnavailable, llm_client
 from app.orchestrator.events import RunContext
-from app.schemas import ActionPack, DeskQuestion, Finding, Letter, SimulatorResult, Summary
+from app.schemas import (
+    ActionPack,
+    DeskQuestion,
+    Finding,
+    Letter,
+    SimulatorResult,
+    Summary,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -51,7 +57,7 @@ def _build_letter(hospital_name: str, bill_date: str, findings: list[Finding]) -
 
     rows = []
     for i, f in enumerate(red_amber[:10], 1):
-        amount_str = f"₹{f.amount_at_stake:,.0f}" if f.amount_at_stake else "—"
+
         rows.append(f"{i}. {f.title} (₹{f.amount_at_stake:,.0f}) — {f.explanation[:100]}")
 
     subject = f"Query regarding hospital bill — {len(red_amber)} items require clarification"

@@ -6,7 +6,6 @@ from pathlib import Path
 
 import pymupdf
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
 
 from app.models import Chunk, Document
 from app.rag.embed import embedder
@@ -123,7 +122,7 @@ async def ingest_pdf(
     texts = [c["text"] for c in all_chunks]
     try:
         embeddings = list(embedder.embed_passages(texts))
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001
         logger.error("Embedding failed for %s: %s", name, e)
         embeddings = [None] * len(texts)
 

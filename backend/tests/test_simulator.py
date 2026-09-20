@@ -2,15 +2,13 @@
 test_simulator.py — SPEC §6 worked examples must pass exactly.
 Both Example 1 and Example 2 verified below.
 """
-import sys
 import os
+import sys
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-import pytest
-from app.schemas import (
-    BillLine, ExtractedBill, MatchedLine, ResolvedPolicy, SimulatorResult
-)
 from app.engine.simulator import simulate_claim
+from app.schemas import ExtractedBill, MatchedLine, ResolvedPolicy
 
 
 def make_spec_lines():
@@ -103,7 +101,7 @@ def test_example2_flat_cap():
     )
     catalog_non_payable = {4}
 
-    result, c1_findings = simulate_claim(bill, lines, policy, [], catalog_non_payable)
+    result, _c1_findings = simulate_claim(bill, lines, policy, [], catalog_non_payable)
 
     assert result.billed_total == 122000.0
     assert result.non_payable_total == 2000.0

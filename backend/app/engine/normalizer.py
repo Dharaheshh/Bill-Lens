@@ -1,5 +1,7 @@
 import logging
 
+logger = logging.getLogger(__name__)
+
 from sqlalchemy import select, text
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -53,8 +55,8 @@ async def normalize_lines(session: AsyncSession, lines: list[BillLine]) -> list[
                             match_score=score
                         ))
                         continue
-        except Exception as e:
-            logging.warning(f"Embedding match failed for {clean_text}: {e}")
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"Embedding match failed for {clean_text}: {e}")
             
         # 3. LLM Rerank Fallback
         # Skipped safely if LLM not configured

@@ -6,7 +6,9 @@ from pathlib import Path
 
 from app.db import AsyncSessionLocal
 from app.models import Bill, Policy, Run, TraceEvent
-from app.orchestrator.runner import run_bill_audit_phase1, run_bill_audit_phase2, run_policy_ingest
+from app.orchestrator.runner import (
+    run_bill_audit_phase1,
+)
 
 
 async def record(sample_id: str):
@@ -54,7 +56,7 @@ async def record(sample_id: str):
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{sample_id}.json"
     
-    with open(out_path, "w") as f:
+    with open(out_path, "w") as f:  # noqa: ASYNC230
         json.dump({"events": events, "result": result}, f, indent=2)
     
     print(f"Recorded {len(events)} events to {out_path}")
