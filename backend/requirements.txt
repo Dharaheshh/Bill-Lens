@@ -1,0 +1,13 @@
+fastapi
+pydantic-settings
+sqlalchemy>=2.0
+psycopg[binary]
+pgvector
+fastembed
+pymupdf
+openai
+sse-starlette
+reportlab
+pillow
+pytest
+ruff
